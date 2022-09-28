@@ -39,7 +39,7 @@ const DashboardScreen = () => {
 
  if(loading || user.length === 0){
   return(
-    <div className='d-flex justify-content-center align-items-center' style={{height:'100vh'}}>
+    <div className='d-flex flex-column justify-content-center align-items-center' style={{height:'100vh'}}>
       <Triangle
   height="100"
   width="100"
@@ -49,6 +49,7 @@ const DashboardScreen = () => {
   wrapperClassName=""
   visible={true}
 />
+<div className='text-center h3 mb-4 p-2'>YellowPages</div>
     </div>
   )
  }
