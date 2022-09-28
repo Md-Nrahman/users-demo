@@ -11,8 +11,16 @@ const DashboardScreen = () => {
   const [filteredUser, setFilteredUser] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearch, setisSearch] = useState(false);
 
   const onSearch = () => {
+    if(searchValue){
+      setisSearch(true)
+    }else{
+      setisSearch(false)
+    }
+
+
     setFilteredUser(
       user.filter((item) =>
         item.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -81,7 +89,8 @@ const DashboardScreen = () => {
                 />
               </div>
             ))
-          : user?.map((item) => (
+          : (isSearch && !filteredUser?.length) ? <p className="text-danger">Sorry! No, Data found</p>:
+          user?.map((item) => (
               <div className="col-md-4 col-sm-6 col-lg-3 mb-4 shadow-sm">
                 <MemberCard
                   key={item.id}
